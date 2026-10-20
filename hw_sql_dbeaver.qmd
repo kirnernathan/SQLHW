@@ -48,6 +48,7 @@ Complete the following exercises using the appropriate packages in R. Ensure tha
 - Load Packages `DBI`, `duckdb`, `nycflights13` and anything else you need
 
 - Download the duck database. <https://data-science-master.github.io/lectures/data/flights.duckdb>
+
 ```{r}
 library(DBI)
 library(duckdb)
@@ -68,21 +69,25 @@ flights <-"flights.duckdb"
 tbl(conn, sql("SELECT * FROM 'flights'"))
 ```
 
-
 #### b.
 
 Find the **number of flights**
 
 i.  in the dataset
+```{r}
+dbGetQuery(conn,"SELECT COUNT(*) FROM flights")
+
+```
 
 ii. for each carrier
+```{r}
+dbGetQuery(conn,"SELECT carrier, COUNT(*) FROM flights GROUP BY carrier")
 
+```
 
 #### c.
 
 Find the **average departure delay** (`dep_delay`)
-
-
 
 #### d.
 
@@ -91,7 +96,6 @@ Find the **top 5 destinations** (`dest`) With the most flights.
 - Your output should include:
   - destination
   - number of flights Sort from the **largest to smallest**.
-
 
 #### e.
 
@@ -102,7 +106,6 @@ Create a table showing:
 - average arrival delay (`arr_delay`)
 
 Sort the results from **largest to smallest delay**
-
 
 > You must close the connection when you are done. Use `dbDisconnect()`
 
