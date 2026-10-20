@@ -127,9 +127,7 @@ dbIsValid(conn) #check to make sure connection is closed
 
 List the first **10 rows** of the `flights` table.
 
-``` r
-dbGetQuery(conn, "YOUR SQL HERE")
-```
+![Question 1](<Screenshots/Question 1.png>)
 
 #### b.
 
