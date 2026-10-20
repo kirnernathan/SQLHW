@@ -111,6 +111,11 @@ Create a table showing:
 - average arrival delay (`arr_delay`)
 
 Sort the results from **largest to smallest delay**
+```{r}
+dbGetQuery(conn, "SELECT carrier,AVG(arr_delay) AS delay_time,FROM flights GROUP BY carrier ORDER BY delay_time DESC  ")
+dbDisconnect(conn,"flights.duckdb") #close connection
+dbIsValid(conn) #check to make sure connection is closed
+```
 
 > You must close the connection when you are done. Use `dbDisconnect()`
 
