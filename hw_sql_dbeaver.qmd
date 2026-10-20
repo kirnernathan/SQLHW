@@ -82,12 +82,14 @@ dbGetQuery(conn,"SELECT COUNT(*) FROM flights")
 ii. for each carrier
 ```{r}
 dbGetQuery(conn,"SELECT carrier, COUNT(*) FROM flights GROUP BY carrier")
-
 ```
 
 #### c.
 
 Find the **average departure delay** (`dep_delay`)
+```{r}
+dbGetQuery(conn, "SELECT AVG(dep_delay) FROM flights")
+```
 
 #### d.
 
